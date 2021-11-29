@@ -27,7 +27,7 @@ def add_time(start, duration, days_of_the_week = False):
 
     amount_of_days = int(duration_hours /12)
 
-    end_minutes = start_minutes + duration
+    end_minutes = start_minutes + duration_minutes
     if (end_minutes >= 60):
         start_hours += 1
         end_minutes = end_minutes % 60
@@ -37,7 +37,7 @@ def add_time(start, duration, days_of_the_week = False):
     end_minutes = end_minutes if end_minutes > 9 else "0" + str(end_minutes)
     end_hours = end_hours = 12 if end_hours == 0 else end_hours
     if (am_or_pm == "PM" and start_hours + (duration_hours %12) >= 12):
-      amount_of_days +=1;
+      amount_of_days +=1
 
     am_or_pm = am_or_pm_flip[am_or_pm] if amount_of_am_pm_flips % 2 == 1 else am_or_pm
 
@@ -52,6 +52,6 @@ def add_time(start, duration, days_of_the_week = False):
     if (amount_of_days == 1):
       return returnTime + " " + "(next day)"
     elif (amount_of_days > 1):
-      return returnTime + " (" +str(amount_of_days) + " days later)"
+      return returnTime + " (" + str(amount_of_days) + " days later)"
 
     return returnTime
